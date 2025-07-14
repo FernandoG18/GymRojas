@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronForce Gym - Entrenador Carlos Rojas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DC2626', /* Rojo más vibrante */
+                        primaryDark: '#B91C1C',
+                        secondary: '#FECACA',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 3px;
+            background: #fff;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        
+        .open .hamburger-middle {
+            display: none;
+        }
+        
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        /* Animación de aparición */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Barra de navegación roja -->
+    <nav class="bg-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo y nombre -->
+                <div class="flex items-center space-x-3">
+                    <img src="Img/logo.png" alt="IronForce Logo" class="h-20 rounded-full border-2 border-white">
+                    <span class="text-xl font-bold"></span>
+                </div>
+
+                <!-- Menú desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="hover:text-secondary font-medium transition duration-300">INICIO</a>
+                    <a href="#testimonios" class="hover:text-secondary font-medium transition duration-300">TESTIMONIOS</a>
+                    <a href="#metodos" class="hover:text-secondary font-medium transition duration-300">METODOS</a>
+                    <a href="#contacto" class="hover:text-secondary font-medium transition duration-300">
+                        CONTACTO
+                    </a>
+                </div>
+
+                <!-- Botón hamburguesa mobile -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="hamburger focus:outline-none">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menú mobile -->
+            <div class="md:hidden">
+                <div id="menu" class="hidden flex-col items-center py-4 space-y-4 bg-primaryDark mt-2 rounded-lg">
+                    <a href="#inicio" class="hover:text-secondary transition duration-300">INICIO</a>
+                    <a href="#testimonios" class="hover:text-secondary transition duration-300">TESTIMONIOS</a>
+                    <a href="#metodos" class="hover:text-secondary transition duration-300">METODOS</a>
+                    <a href="#contacto" class="hover:text-secondary transition duration-300">CONTACTO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio - Entrenador Carlos Rojas -->
+    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-b from-primary to-primaryDark text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <!-- Imagen del entrenador -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <div class="relative">
+                        <img src="Img/entrenador.png" 
+                             alt="Entrenador Carlos Rojas" 
+                             class="rounded-xl shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500">
+                        <div class="absolute -bottom-5 -right-5 bg-white text-primary py-2 px-4 rounded-lg shadow-lg font-bold">
+                            <i class="fas fa-trophy mr-2"></i>10+ Años
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información del entrenador -->
+                <div class="md:w-1/2 animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">CARLOS <span class="text-secondary">ROJAS</span></h1>
+                    <p class="text-xl mb-8">Entrenador profesional especializado en transformaciones físicas</p>
+
+                    <!-- Experiencia y logros -->
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-medal text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">CAMPEONATOS GANADOS</h3>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>Mr. Ayacucho 2022 - 1er puesto</li>
+                                    <li>Campeonato Nacional de Culturismo 2021 - 2do puesto</li>
+                                    <li>Mr. Perú Classic Physique 2020 - 3er puesto</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-graduation-cap text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">CERTIFICACIONES</h3>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>Entrenador Personal Certificado (ISSA)</li>
+                                    <li>Especialista en Nutrición Deportiva</li>
+                                    <li>Entrenador Funcional Avanzado</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-dumbbell text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">ESPECIALIDADES</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">Hipertrofia muscular</span>
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">Pérdida de grasa</span>
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">Preparación para competencias</span>
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">Entrenamiento funcional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frase motivadora -->
+                    <div class="mt-10 p-6 bg-white bg-opacity-10 rounded-xl border-l-4 border-secondary">
+                        <p class="italic text-lg">"No se trata de ser el mejor, se trata de ser mejor que ayer. Cada gota de sudor es un paso más cerca de tu mejor versión."</p>
+                        <p class="font-bold mt-2">- Carlos Rojas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Métodos (ejemplo adicional) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">MI MÉTODO DE ENTRENAMIENTO</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">EVALUACIÓN INICIAL</h3>
+                    <p class="text-gray-600">Análisis completo de tu composición corporal, nivel de condición física y objetivos específicos.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">PLAN PERSONALIZADO</h3>
+                    <p class="text-gray-600">Diseño de rutinas adaptadas a tus necesidades, horarios y equipamiento disponible.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">ASESORÍA NUTRICIONAL</h3>
+                    <p class="text-gray-600">Plan alimenticio adaptado a tus objetivos, preferencias y estilo de vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Sección de Testimonios -->
+<section id="testimonios" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">TRANSFORMACIONES REALES</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Los resultados de nuestros clientes hablan por sí solos. Cambios reales con el método Carlos Rojas.</p>
+        
+        <!-- Testimonio 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+            <div class="md:flex">
+                <!-- Fotos Before/After -->
+                <div class="md:w-1/2 p-4">
+                    <div class="relative h-64 md:h-80">
+                        <div class="absolute inset-0 flex">
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/antes3.png" 
+                                     alt="Antes" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-1">
+                                    <span class="font-bold">ANTES</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/despues3.png" 
+                                     alt="Después" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-primary text-white text-center py-1">
+                                    <span class="font-bold">DESPUÉS (12 semanas)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Texto del testimonio -->
+                <div class="md:w-1/2 p-6 md:p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Juan Pérez" 
+                             class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <div>
+                            <h3 class="font-bold text-lg">JUAN PÉREZ</h3>
+                            <p class="text-gray-600">32 años • 12 semanas de entrenamiento</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex mb-2">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Carlos cambió mi vida completamente. Nunca pensé que a mis 32 años podría lograr este físico. Su método de entrenamiento y la dieta que me preparó hicieron la diferencia."</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Pérdida de grasa</p>
+                            <p class="font-bold text-primary">-18 kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Circ. cintura</p>
+                            <p class="font-bold text-primary">-25 cm</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Masa muscular</p>
+                            <p class="font-bold text-primary">+5 kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Grasa corporal</p>
+                            <p class="font-bold text-primary">-12%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonio 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+            <div class="md:flex flex-row-reverse">
+                <!-- Fotos Before/After -->
+                <div class="md:w-1/2 p-4">
+                    <div class="relative h-64 md:h-80">
+                        <div class="absolute inset-0 flex">
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/antes2.png" 
+                                     alt="Antes" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-1">
+                                    <span class="font-bold">ANTES</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/despues2.png" 
+                                     alt="Después" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-primary text-white text-center py-1">
+                                    <span class="font-bold">DESPUÉS (16 semanas)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Texto del testimonio -->
+                <div class="md:w-1/2 p-6 md:p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                             alt="María González" 
+                             class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <div>
+                            <h3 class="font-bold text-lg">MARÍA GONZÁLEZ</h3>
+                            <p class="text-gray-600">28 años • 16 semanas de entrenamiento</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex mb-2">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Después de mi embarazo, estaba desanimada con mi cuerpo. Carlos no solo me ayudó a recuperar mi figura, sino que me dio más fuerza y confianza que nunca antes."</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Pérdida de peso</p>
+                            <p class="font-bold text-primary">-15 kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Circ. cadera</p>
+                            <p class="font-bold text-primary">-18 cm</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Fuerza</p>
+                            <p class="font-bold text-primary">+120%</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Autoestima</p>
+                            <p class="font-bold text-primary">🌟 🌟 🌟 🌟 🌟</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonio 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <!-- Fotos Before/After -->
+                <div class="md:w-1/2 p-4">
+                    <div class="relative h-64 md:h-80">
+                        <div class="absolute inset-0 flex">
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/antes1.png" 
+                                     alt="Antes" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-1">
+                                    <span class="font-bold">ANTES</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2 border-4 border-white shadow-md">
+                                <img src="Img/despues1.png" 
+                                     alt="Después" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-primary text-white text-center py-1">
+                                    <span class="font-bold">DESPUÉS (20 semanas)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Texto del testimonio -->
+                <div class="md:w-1/2 p-6 md:p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" 
+                             alt="Luis Martínez" 
+                             class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <div>
+                            <h3 class="font-bold text-lg">LUIS MARTÍNEZ</h3>
+                            <p class="text-gray-600">40 años • 20 semanas de entrenamiento</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex mb-2">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"A los 40 años pensé que era demasiado tarde para cambiar mi cuerpo. Carlos me demostró que estaba equivocado. No solo perdí grasa, gané músculo y energía como nunca en mi vida."</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Grasa perdida</p>
+                            <p class="font-bold text-primary">-22 kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Músculo ganado</p>
+                            <p class="font-bold text-primary">+8 kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Press banca</p>
+                            <p class="font-bold text-primary">60kg → 110kg</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-center">
+                            <p class="text-sm text-gray-500">Energía</p>
+                            <p class="font-bold text-primary">Como a los 25</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección de Métodos -->
+<section id="metodos" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">MÉTODOS DE ENTRENAMIENTO</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Técnicas especializadas que aplicamos para obtener resultados garantizados</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Método 1 -->
+            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+                <div class="text-primary text-4xl mb-4">
+                    <i class="fas fa-fire-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">HIPERTROFIA AVANZADA</h3>
+                <p class="text-gray-600 mb-4">Programas científicos para ganancia muscular con técnicas de intensidad avanzada.</p>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Técnicas de sobrecarga progresiva
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Periodización ondulante
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Activación de fibras tipo II
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Método 2 -->
+            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+                <div class="text-primary text-4xl mb-4">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">PÉRDIDA DE GRASA</h3>
+                <p class="text-gray-600 mb-4">Sistemas metabólicos para reducción de grasa manteniendo masa muscular.</p>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Entrenamiento HIIT y LISS
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Estrategias nutricionales
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Suplementación estratégica
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Método 3 -->
+            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+                <div class="text-primary text-4xl mb-4">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">PREPARACIÓN FÍSICA</h3>
+                <p class="text-gray-600 mb-4">Programas para atletas y competidores de fisicoculturismo.</p>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Fases de volumen y definición
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Protocolos de peak week
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i> Estrategias de posing
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección de Instalaciones -->
+<section id="instalaciones" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">NUESTRAS INSTALACIONES</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Espacio profesional equipado con lo último en tecnología fitness</p>
+        
+        <!-- Galería Slider -->
+        <div class="relative max-w-4xl mx-auto">
+            <div class="overflow-hidden rounded-xl shadow-2xl">
+                <div class="flex transition-transform duration-300 ease-in-out" id="slider">
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Área de peso libre" 
+                             class="w-full h-96 object-cover">
+                        <div class="bg-white p-4">
+                            <h3 class="font-bold text-lg">ÁREA DE PESO LIBRE</h3>
+                            <p class="text-gray-600">Equipada con barras olímpicas, discos de competición y racks premium.</p>
+                        </div>
+                    </div>
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Máquinas de última generación" 
+                             class="w-full h-96 object-cover">
+                        <div class="bg-white p-4">
+                            <h3 class="font-bold text-lg">MÁQUINAS PREMIUM</h3>
+                            <p class="text-gray-600">Tecnología biomecánica para un entrenamiento perfecto.</p>
+                        </div>
+                    </div>
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Área funcional" 
+                             class="w-full h-96 object-cover">
+                        <div class="bg-white p-4">
+                            <h3 class="font-bold text-lg">ZONA FUNCIONAL</h3>
+                            <p class="text-gray-600">Espacio para entrenamiento en grupo y circuitos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Controles del slider -->
+            <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-opacity-100 transition">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-opacity-100 transition">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Puntos indicadores -->
+        <div class="flex justify-center mt-6 space-x-2" id="dots-container">
+            <button class="w-3 h-3 rounded-full bg-primary bg-opacity-30 dot-btn"></button>
+            <button class="w-3 h-3 rounded-full bg-primary bg-opacity-30 dot-btn"></button>
+            <button class="w-3 h-3 rounded-full bg-primary bg-opacity-30 dot-btn"></button>
+        </div>
+    </div>
+</section>
+<!-- Sección de Contacto -->
+<section id="contacto" class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">CONTÁCTANOS</h2>
+        <p class="text-center text-secondary mb-12 max-w-2xl mx-auto">Empieza tu transformación hoy mismo</p>
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Información de contacto -->
+            <div class="lg:w-1/2 bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                <h3 class="text-2xl font-bold mb-6">INFORMACIÓN</h3>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-secondary text-primary p-2 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">DIRECCIÓN</h4>
+                            <p>Av. Fitness 123, Ayacucho, Perú</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-secondary text-primary p-2 rounded-full mr-4">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">TELÉFONO</h4>
+                            <p>+51 987 654 321</p>
+                            <p>+51 987 654 321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-secondary text-primary p-2 rounded-full mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">CORREO</h4>
+                            <p>info@ironforcegym.com</p>
+                            <p>carlosrojas@ironforcegym.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-secondary text-primary p-2 rounded-full mr-4">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">HORARIO</h4>
+                            <p>Lunes a Viernes: 6:00 AM - 10:00 PM</p>
+                            <p>Sábados: 8:00 AM - 6:00 PM</p>
+                            <p>Domingos: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="mt-8">
+                    <h4 class="font-bold mb-4">SÍGUENOS</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mapa y formulario -->
+            <div class="lg:w-1/2 space-y-6">
+                <!-- Mapa -->
+                <div class="rounded-xl overflow-hidden shadow-lg">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.00857359504!2d-74.2238516846556!3d-13.158873563577794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91127f8956c2a1a9%3A0x7e5a1a9b0a0a0a0a!2sAyacucho!5e0!3m2!1ses!2spe!4v1620000000000!5m2!1ses!2spe" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"></iframe>
+                </div>
+                
+                <!-- Formulario -->
+                <form class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm">
+                    <div class="mb-4">
+                        <label for="nombre" class="block mb-2 font-medium">Nombre completo</label>
+                        <input type="text" id="nombre" 
+                               class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent placeholder-white placeholder-opacity-70">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
+                        <input type="email" id="email" 
+                               class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent placeholder-white placeholder-opacity-70">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="telefono" class="block mb-2 font-medium">Teléfono</label>
+                        <input type="tel" id="telefono" 
+                               class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent placeholder-white placeholder-opacity-70">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="mensaje" class="block mb-2 font-medium">¿Qué objetivo quieres lograr?</label>
+                        <textarea id="mensaje" rows="3" 
+                                  class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent placeholder-white placeholder-opacity-70"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-secondary text-primary py-3 rounded-lg font-bold hover:bg-white transition duration-300">
+                        SOLICITAR CONSULTA GRATIS
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    // Script para el slider
+    document.addEventListener('DOMContentLoaded', () => {
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const dots = document.querySelectorAll('.dot-btn');
+        let currentIndex = 0;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar puntos
+            dots.forEach((dot, index) => {
+                if(index === currentIndex) {
+                    dot.classList.remove('bg-opacity-30');
+                    dot.classList.add('bg-opacity-100', 'w-4');
+                } else {
+                    dot.classList.add('bg-opacity-30');
+                    dot.classList.remove('bg-opacity-100', 'w-4');
+                }
+            });
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % 3;
+            updateSlider();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + 3) % 3;
+            updateSlider();
+        });
+        
+        // Click en puntos
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+        
+        // Auto slide cada 5 segundos
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 3;
+            updateSlider();
+        }, 5000);
+    });
+</script>
+    <script>
+        // Menú hamburguesa
+        const hamburgerBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('menu');
+        
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Smooth scrolling para los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil si está abierto
+                if (!mobileMenu.classList.contains('hidden')) {
+                    hamburgerBtn.classList.remove('open');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
