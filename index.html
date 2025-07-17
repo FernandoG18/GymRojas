@@ -124,20 +124,20 @@
     </nav>
 
     <!-- Sección Inicio - Entrenador Carlos Rojas -->
-    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-b from-primary to-primaryDark text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-10">
-                <!-- Imagen del entrenador -->
-                <div class="md:w-1/2 animate-fadeInUp">
-                    <div class="relative">
-                        <img src="Img/entrenador.png" 
-                             alt="Entrenador Carlos Rojas" 
-                             class="rounded-xl shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500">
-                        <div class="absolute -bottom-5 -right-5 bg-white text-primary py-2 px-4 rounded-lg shadow-lg font-bold">
-                            <i class="fas fa-trophy mr-2"></i>10+ Años
-                        </div>
+<section id="inicio" class="py-16 md:py-24 bg-gradient-to-b from-primary to-primaryDark text-white">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+            <!-- Imagen del entrenador -->
+            <div class="md:w-1/2 animate-fadeInUp">
+                <div class="relative">
+                    <img src="Img/entrenador.png" 
+                         alt="Entrenador Carlos Rojas" 
+                         class="rounded-xl shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500">
+                    <div class="absolute -bottom-5 right-0 md:-right-5 bg-white text-primary py-2 px-4 rounded-lg shadow-lg font-bold">
+                        <i class="fas fa-trophy mr-2"></i>10+ Años
                     </div>
                 </div>
+            </div>
 
                 <!-- Información del entrenador -->
                 <div class="md:w-1/2 animate-fadeInUp" style="animation-delay: 0.3s;">
@@ -200,12 +200,15 @@
         </div>
     </section>
 
-    <!-- Sección de Métodos (ejemplo adicional) -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-primary">MI MÉTODO DE ENTRENAMIENTO</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
+<section class="py-16 bg-white" id="metodo">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-primary">MI MÉTODO DE ENTRENAMIENTO</h2>
+
+        <!-- Contenedor principal con tarjetas y video lado a lado -->
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+
+            <!-- Tarjetas en columna -->
+            <div class="flex-1 flex flex-col gap-6">
                 <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-user-check"></i>
@@ -213,7 +216,6 @@
                     <h3 class="text-xl font-bold mb-3">EVALUACIÓN INICIAL</h3>
                     <p class="text-gray-600">Análisis completo de tu composición corporal, nivel de condición física y objetivos específicos.</p>
                 </div>
-                
                 <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-dumbbell"></i>
@@ -221,7 +223,6 @@
                     <h3 class="text-xl font-bold mb-3">PLAN PERSONALIZADO</h3>
                     <p class="text-gray-600">Diseño de rutinas adaptadas a tus necesidades, horarios y equipamiento disponible.</p>
                 </div>
-                
                 <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-utensils"></i>
@@ -230,8 +231,22 @@
                     <p class="text-gray-600">Plan alimenticio adaptado a tus objetivos, preferencias y estilo de vida.</p>
                 </div>
             </div>
+
+            <!-- Video cuadrado a la derecha o centrado en móvil -->
+            <div class="flex w-full justify-center items-center lg:justify-end lg:w-auto">
+                <video id="videoMetodo"
+                    class="rounded-xl shadow-lg"
+                    width="313" height="313"
+                    controls muted>
+                    <source src="videos/informacion.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
     <!-- Sección de Hidratación -->
 <section id="hidratacion" class="py-16 bg-gradient-to-r from-blue-50 to-blue-100">
     <div class="container mx-auto px-4">
@@ -247,41 +262,35 @@
         </div>
     </div>
 </div>
-
-
             <!-- Información sobre hidratación -->
-            <div class="md:w-1/2 animate-fadeInUp" style="animation-delay: 0.3s;">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">AGUA <span class="text-blue-600">CARLOS ROJAS</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">HIDRATACIÓN <span class="text-blue-600">INTELIGENTE</span></h2>
-                <p class="text-xl mb-6 text-gray-700">La hidratación es el 70% de tu éxito en el gimnasio</p>
+<div class="md:w-1/2 animate-fadeInUp" style="animation-delay: 0.3s;">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">AGUA <span class="text-blue-600">CARLOS ROJAS</span></h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">HIDRATACIÓN <span class="text-blue-600">INTELIGENTE</span></h2>
+    <p class="text-xl mb-6 text-gray-700">Agua ozonizada con colágeno y L-Carnitina para tu máximo rendimiento</p>
 
-                <div class="space-y-4 mb-8">
-
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 mt-1">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-gray-800">BENEFICIOS</h3>
-                            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
-                                <li>Mejora el transporte de nutrientes</li>
-                                <li>Optimiza la recuperación muscular</li>
-                                <li>Regula la temperatura corporal</li>
-                                <li>Mejora la lubricación articular</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Frase destacada -->
-                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-400">
-                    <p class="italic text-lg text-gray-700 mb-2">"No subestimes el poder de una hidratación adecuada. Beber agua durante los entrenamientos puede aumentar tu rendimiento hasta en un 30%."</p>
-                    <p class="font-bold text-primary">- Carlos Rojas</p>
-                </div>
-
-                <!-- Botón de compra -->
-            
+    <div class="space-y-4 mb-8">
+        <div class="flex items-start">
+            <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-tint"></i>
             </div>
+            <div>
+                <h3 class="font-bold text-lg text-gray-800">BENEFICIOS</h3>
+                <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                    <li>Regenera tus tejidos</li>
+                    <li>Reafirma tu piel</li>
+                    <li>Te hace resplandecer</li>
+                    <li>Ayuda a prevenir lesiones</li>
+                    <li>Reduce la inflamación</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Frase destacada -->
+    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-400">
+        <p class="italic text-lg text-gray-700 mb-2">"No subestimes el poder de una hidratación adecuada. Beber agua durante los entrenamientos puede aumentar tu rendimiento hasta en un 30%."</p>
+        <p class="font-bold text-primary">- Carlos Rojas</p>
+    </div>
+</div>
         </div>
 
         <!-- Consejos de hidratación -->
@@ -557,73 +566,82 @@
 </section>
 <!-- Sección de Métodos -->
 <section id="metodos" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">MÉTODOS DE ENTRENAMIENTO</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Técnicas especializadas que aplicamos para obtener resultados garantizados</p>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Método 1 -->
-            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
-                <div class="text-primary text-4xl mb-4">
-                    <i class="fas fa-fire-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">HIPERTROFIA AVANZADA</h3>
-                <p class="text-gray-600 mb-4">Programas científicos para ganancia muscular con técnicas de intensidad avanzada.</p>
-                <ul class="space-y-2 text-sm">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Técnicas de sobrecarga progresiva
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Periodización ondulante
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Activación de fibras tipo II
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Método 2 -->
-            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
-                <div class="text-primary text-4xl mb-4">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">PÉRDIDA DE GRASA</h3>
-                <p class="text-gray-600 mb-4">Sistemas metabólicos para reducción de grasa manteniendo masa muscular.</p>
-                <ul class="space-y-2 text-sm">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Entrenamiento HIIT y LISS
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Estrategias nutricionales
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Suplementación estratégica
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Método 3 -->
-            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
-                <div class="text-primary text-4xl mb-4">
-                    <i class="fas fa-dumbbell"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">PREPARACIÓN FÍSICA</h3>
-                <p class="text-gray-600 mb-4">Programas para atletas y competidores de fisicoculturismo.</p>
-                <ul class="space-y-2 text-sm">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Fases de volumen y definición
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Protocolos de peak week
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-primary mr-2"></i> Estrategias de posing
-                    </li>
-                </ul>
-            </div>
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">MÉTODOS DE ENTRENAMIENTO</h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      Técnicas especializadas que aplicamos para obtener resultados garantizados
+    </p>
+
+    <!-- Tarjetas de métodos -->
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Método 1 -->
+      <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+        <div class="text-primary text-4xl mb-4">
+          <i class="fas fa-fire-alt"></i>
         </div>
+        <h3 class="text-xl font-bold mb-3">HIPERTROFIA AVANZADA</h3>
+        <p class="text-gray-600 mb-4">Programas científicos para ganancia muscular con técnicas de intensidad avanzada.</p>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Técnicas de sobrecarga progresiva</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Periodización ondulante</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Activación de fibras tipo II</li>
+        </ul>
+      </div>
+
+      <!-- Método 2 -->
+      <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+        <div class="text-primary text-4xl mb-4">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">PÉRDIDA DE GRASA</h3>
+        <p class="text-gray-600 mb-4">Sistemas metabólicos para reducción de grasa manteniendo masa muscular.</p>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Entrenamiento HIIT y LISS</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Estrategias nutricionales</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Suplementación estratégica</li>
+        </ul>
+      </div>
+
+      <!-- Método 3 -->
+      <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 border-t-4 border-primary">
+        <div class="text-primary text-4xl mb-4">
+          <i class="fas fa-dumbbell"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">PREPARACIÓN FÍSICA</h3>
+        <p class="text-gray-600 mb-4">Programas para atletas y competidores de fisicoculturismo.</p>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Fases de volumen y definición</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Protocolos de peak week</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-2"></i> Estrategias de posing</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- ASESORÍAS VIRTUALES - dentro de la misma sección -->
+    <div class="mt-20 max-w-3xl mx-auto text-center">
+      <h3 class="text-2xl font-bold text-primary mb-4">ASESORÍAS VIRTUALES</h3>
+      <p class="text-gray-600 mb-6">
+        Entrena desde cualquier parte del mundo con un plan totalmente personalizado, seguimiento online y asesoramiento profesional.
+      </p>
+      <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300">
+        <div class="text-primary text-3xl mb-4">
+          <i class="fas fa-globe"></i>
+        </div>
+        <p class="text-gray-700 mb-4">
+          No importa en qué país estés. A través de plataformas digitales te acompaño paso a paso en tu proceso de transformación.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-center justify-center"><i class="fas fa-check-circle text-primary mr-2"></i> Rutinas adaptadas a tu espacio y equipo</li>
+          <li class="flex items-center justify-center"><i class="fas fa-check-circle text-primary mr-2"></i> Videollamadas y contacto directo</li>
+          <li class="flex items-center justify-center"><i class="fas fa-check-circle text-primary mr-2"></i> Evaluaciones virtuales y ajustes semanales</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+
 <!-- Sección de Instalaciones -->
 <section id="instalaciones" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">
@@ -699,7 +717,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold">DIRECCIÓN</h4>
-                            <p>Av. Fitness 123, Ayacucho, Perú</p>
+                            <p>Jr. Grau N°704 (A una cuadra de Mercado Choro)</p>
                         </div>
                     </div>
                     
@@ -709,8 +727,8 @@
                         </div>
                         <div>
                             <h4 class="font-bold">TELÉFONO</h4>
-                            <p>+51 987 654 321</p>
-                            <p>+51 987 654 321</p>
+                            <p>+51 900 156 517</p>
+                            <p>+51 900 156 517</p>
                         </div>
                     </div>
                     
@@ -731,9 +749,10 @@
                         </div>
                         <div>
                             <h4 class="font-bold">HORARIO</h4>
-                            <p>Lunes a Viernes: 6:00 AM - 10:00 PM</p>
+                            <p>Lunes a Viernes</p>
+                            <p>Mañana: 7:15 AM - 2:00 PM</p>
+                            <p>Tardes: 4:15 PM - 9:00 PM</p>
                             <p>Sábados: 8:00 AM - 6:00 PM</p>
-                            <p>Domingos: 9:00 AM - 2:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -742,17 +761,18 @@
                 <div class="mt-8">
                     <h4 class="font-bold mb-4">SÍGUENOS</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                        <a href="https://www.facebook.com/CarlosRojasGim" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                        <a href="https://www.instagram.com/carlosalberto.rojasloayza/" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                        <a href="https://www.tiktok.com/@carlosfitrojas" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
-                            <i class="fab fa-youtube"></i>
+                        <a href="https://wa.me/51900156517?text=Hola%20Carlos,%20deseo%20más%20información%20sobre%20tus%20servicios%20de%20entrenamiento.%20¿Podrías%20brindarme%20más%20detalles?" 
+                        class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -762,7 +782,7 @@
             <div class="lg:w-1/2 space-y-6">
                 <!-- Mapa -->
                 <div class="rounded-xl overflow-hidden shadow-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.00857359504!2d-74.2238516846556!3d-13.158873563577794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91127f8956c2a1a9%3A0x7e5a1a9b0a0a0a0a!2sAyacucho!5e0!3m2!1ses!2spe!4v1620000000000!5m2!1ses!2spe" 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d485.61723974017934!2d-74.22899167834503!3d-13.16631434829938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91127d983cba1437%3A0x55ab09dd9e27fb42!2sMERCADO%20CHORRO!5e0!3m2!1ses!2spe!4v1752722865612!5m2!1ses!2spe" 
                             width="100%" 
                             height="250" 
                             style="border:0;" 
